@@ -24,6 +24,8 @@
   </tbody>
 </table>
 <%= paginate @produtos %>
+<br>
+  <%= link_to 'Novo Produto', new_produto_path, class: 'btn btn-primary admin-button' %>
 <script>
 $(".alert").fadeOut(2800);
 </script>

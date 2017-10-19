@@ -1,9 +1,8 @@
 pt-BR:
-  devise:
-    views:
-      edit:
-        title: 'Editando usuário'
-        update: 'Gravar'
+  views:
+    edit:
+      title: 'Editando produto'
+      update: 'Gravar'
   link_to:
     show: 'Consultar'
     edit: 'Editar'

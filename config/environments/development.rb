@@ -57,12 +57,14 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     address: "smtp.wonder.com.br",
-    port: 465,
+    tls: true,
+    port: "465",
     domain: ENV["WONDER_DOMAIN"],
-    authentication: "plain",
+    authentication: :plain,
     enable_starttls_auto: true,
     user_name: ENV["WONDER_USERNAME"],
-    password: ENV["WONDER_PASSWORD"]
+    password: ENV["WONDER_PASSWORD"],
+    openssl_verify_mode: 'none'
   }
 
 end
