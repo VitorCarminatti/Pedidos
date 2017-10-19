@@ -72,9 +72,8 @@ gem 'pundit'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
   gem 'wonder-ruby-style'
-
+  gem 'foreman'
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'rspec-rails'

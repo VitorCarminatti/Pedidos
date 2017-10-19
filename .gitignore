@@ -30,6 +30,7 @@
 /public/probus-server/
 
 # Variáveis de Ambiente locais
+Procfile
 .env
 .env.*
 
