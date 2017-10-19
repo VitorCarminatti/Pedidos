@@ -15,6 +15,7 @@ module Pedidos
     config.load_defaults 5.1
     config.i18n.default_locale = "pt-BR"
     config.assets.initialize_on_precompile = false
+    config.time_zone = "Brasilia"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

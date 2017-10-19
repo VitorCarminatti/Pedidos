@@ -8,11 +8,9 @@ pt-BR:
       previous: "&lsaquo; Anterior"
       next: "Próxima &rsaquo;"
       truncate: "&hellip;"
-      edit:
-  devise:
-    views:
-        title: 'Editando usuário'
-        update: 'Gravar'
+    edit:
+      update: 'Gravar'
+      title: 'Editando usuário'
     confirmations:
       confirmed: "Sua conta foi confirmada com sucesso. Você está logado."
       send_instructions: "Dentro de minutos, você receberá um e-mail com instruções para a confirmação da sua conta."

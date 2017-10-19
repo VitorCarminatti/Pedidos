@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_many :pedidos
+	devise :registerable, :confirmable
 	devise :database_authenticatable, :registerable,
      :recoverable, :rememberable, :trackable, :validatable
 

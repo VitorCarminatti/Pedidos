@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :categorias
-  devise_for :users, controllers: { sessions: 'users/sessions' }, :path_prefix => 'my'
+  devise_for :users, controllers: { sessions: 'users/sessions', confirmations: 'users/confirmations' }, :path_prefix => 'my'
   resources :users
   resources :itens_pedido do
     patch :aumenta_quantidade, on: :member
