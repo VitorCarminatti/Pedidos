@@ -1,0 +1,50 @@
+<%= render 'commom/navbar' %>
+<div class="container">
+<div class="text-center">
+  <h1>Galeria de Produtos</h1>
+  <br>
+</div>
+<% if flash[:notice] %>
+  <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-9">
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :nome_or_descricao_cont, class: "form-control", autofocus: true %>
+  </div>
+  <div class="col-lg-3">
+    <div class="form-inline">
+        <%= f.select :by_categoria, categorias_for_select, {include_blank: 'Categorias'}, class: 'form-control', id: "pesquisa" %>
+        <%= f.submit :class => "btn btn-primary"%>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <% @produtos.each do |produto| %>
+        <div class="col-sm-3">
+          <div class="card my-card">
+            <div class="imagem">
+              <%= link_to produto_path(produto, consulta: 'produto') do %>
+                <%= image_tag produto.foto.url, size: '200x200'%>
+              <% end %>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title"><%= produto.nome %></h4>
+              <p class="card-text"><%= produto.descricao %> </p>
+              <p class="card-text preco">R$: <%= number_with_precision(produto.preco, precision: 2) %> </p>
+              <% if produto.estoque > 0 && produto.ativo %>
+              <%= link_to 'Adicionar ao carrinho', adiciona_produto_produtos_path(produto_id: produto), remote: true, class: "btn btn-primary btn-block" %>
+              <% else %>
+              <%= link_to 'Produto Indisponível', {}, class: "btn btn-danger btn-block", disabled: true %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+<% end %>
+<script>
+  $(".alert").fadeOut(2800);
+</script>
+</div>

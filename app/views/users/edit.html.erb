@@ -1,0 +1,36 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="text-center">
+    <h2><%=t('devise.views.edit.title') + " " + @user.nome %></h2>
+  </div>
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :nome, required: true, autofocus: true %>
+    <%= f.input :email, required: true %>
+    <%= f.input :password, autocomplete: "off", required: false %>
+    <%= f.input :password_confirmation, required: false %>
+    <%= f.input :current_password, required: true %>
+    <div id="mask_cpf">
+      <%= f.input :cpf, required: true, :data => {:mask=> '999-999-9999'} %>
+    </div>
+   <%= f.input :uf, priority: [ "RS" ], collection: ["RS", "SC", "PR", "SP", "RJ"], required: true %>
+    <%= f.input :cidade, priority: [ "Erechim" ], collection: [ "Erechim", "Aratiba", "Barão de Cotegipe", "Três Arroios", "Gaurama"], required: true %>
+    <%= f.input :endereco, required: true %>
+    <div id = "mask_phone">
+      <%= f.input :fone, required: true %>
+    </div>
+    <%= f.input :admin %>
+  </div>
+  <div class="text-center">
+    <div class="form-actions">
+      <%= f.button :submit, t('devise.views.edit.update') %>
+      <%= link_to t('link_to.back'), :back , class: "btn btn-primary"%>
+    </div>
+    <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

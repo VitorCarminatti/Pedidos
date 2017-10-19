@@ -1,0 +1,17 @@
+<%= simple_form_for(@produto) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-group">
+    <%= f.input :nome %>
+    <%= f.input :descricao %>
+    <%= f.association :categoria %>
+    <%= f.input :ativo %>
+    <%= f.input :estoque, input_html: {min: 1, step: 2} %>
+    <%= f.input :preco %>
+    <%= f.input :foto, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to t('link_to.back'), produtos_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

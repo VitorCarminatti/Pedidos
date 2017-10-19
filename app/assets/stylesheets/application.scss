@@ -1,0 +1,53 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "select2";
+@import "select2-bootstrap";
+@import "font-awesome";
+
+#logout{
+	padding-right: 10px;
+}
+
+#git-icon{
+	padding-top: 3px;
+	font-size: 30px;
+}
+
+.my-card{
+	 max-width: 30rem;
+	 margin-top: 50px;
+	 padding: 5px;
+	 border: 1px solid black;
+	 border-radius: 5px;
+}
+
+.imagem{
+	padding-left: 22px;
+}
+
+.card-title{
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.preco{
+	color: darkblue;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.texto-quantidade{
+	display: inline;
+	font-size: 25px;
+}
+
+.link-produtos{
+	padding-left: 15px;
+}
+
+#pesquisa{
+	width: 170px;
+}
+.admin-button{
+	width: 150px;
+}

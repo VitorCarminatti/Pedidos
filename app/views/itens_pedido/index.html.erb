@@ -1,0 +1,13 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
+<div id="atualiza_carrinho">
+  <%= render 'carrinho', model: @itens_pedido %>
+</div>
+
+  <%= link_to 'Adicionar Itens', root_path, class: "btn btn-primary pull-left" %>
+  <% if(atualiza_quantidade_itens > 0) %>
+  <%= link_to 'Finalizar Pedido', atualiza_status_pedido_pedidos_path, class: "btn btn-success pull-right" %>
+  <% end %>
+</div>

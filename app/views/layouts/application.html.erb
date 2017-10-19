@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pedidos</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= render 'commom/navbar' unless @disable_nav %>
+    <div class="container">
+    </div>
+      <%= yield %>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="navbar navbar-light navbar-fixed-bottom" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+          <p class="navbar-text pull-left">© <%= Date.today.year %> - Site Built By Vitor Carminatti </p>
+          <a href="https://github.com/VitorCarminatti" class="pull-right" id="git-icon"><%= fa_icon "github-square" %></a>
+        </div>
+      </div>
+  </body>
+</html>

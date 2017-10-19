@@ -1,0 +1,26 @@
+<div class='container'>
+  <h1> Bem-Vindo Administrador <%= current_user.nome %> </h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Cadastros</th>
+        <th>Consultas</th>
+      </tr>
+    </thead>
+    <tbody>
+          <tr>
+            <td><%= link_to 'Produtos', new_produto_path, class: 'btn btn-primary admin-button' %></td>
+            <td><%= link_to 'Produtos', produtos_admin_produtos_path, class: 'btn btn-primary admin-button' %></td>
+          </tr>
+          <tr>
+            <td><%= link_to 'Categorias', new_categoria_path, class: 'btn btn-primary admin-button' %></td>
+            <td><%= link_to 'Pedidos', pedidos_admin_pedidos_path, class: 'btn btn-primary admin-button' %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to 'Usuários', users_path, class: 'btn btn-primary admin-button' %></td>
+          </tr>
+    </tbody>
+  </table>
+</div>
