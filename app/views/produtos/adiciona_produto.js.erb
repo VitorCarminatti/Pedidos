@@ -1,1 +1,2 @@
 $('#adiciona-produto').html("<%= escape_javascript(render 'galeria_produtos', model: @produto) %>")
+$('#paginator').html('<%= escape_javascript(paginate(@produtos, :remote => true).to_s) %>');

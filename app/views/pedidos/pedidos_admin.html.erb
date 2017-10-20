@@ -2,6 +2,7 @@
   <% if notice.present?%>
     <p class="alert alert-success" role="alert" ><%= notice %></p>
   <% end %>
+
 <h1>Pedidos</h1>
 <table class="table table-inverse">
   <thead>
@@ -29,6 +30,7 @@
 </table>
 <br>
   <%= paginate @pedidos %>
+  <%= link_to t('link_to.back'), admins_path, class: 'btn btn-primary' %>
 <script>
 $('.alert').fadeOut(2800);
 </script>

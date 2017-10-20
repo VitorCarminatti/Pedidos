@@ -11,7 +11,7 @@
 <div class="row">
   <div class="col-lg-9">
   <%= search_form_for @q do |f| %>
-    <%= f.search_field :nome_or_descricao_cont, class: "form-control", autofocus: true %>
+    <%= f.search_field :nome_or_descricao_cont, class: "form-control", autofocus: true, required: false %>
   </div>
   <div class="col-lg-3">
     <div class="form-inline">
@@ -34,7 +34,7 @@
               <p class="card-text"><%= produto.descricao %> </p>
               <p class="card-text preco">R$: <%= number_with_precision(produto.preco, precision: 2) %> </p>
               <% if produto.estoque > 0 && produto.ativo %>
-              <%= link_to 'Adicionar ao carrinho', adiciona_produto_produtos_path(produto_id: produto), remote: true, class: "btn btn-primary btn-block" %>
+              <%= link_to 'Adicionar ao carrinho', adiciona_produto_produtos_path(produto_id: produto, page: params[:page]), class: "btn btn-primary btn-block" %>
               <% else %>
               <%= link_to 'Produto Indisponível', {}, class: "btn btn-danger btn-block", disabled: true %>
               <% end %>

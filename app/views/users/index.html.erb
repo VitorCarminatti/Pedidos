@@ -1,4 +1,8 @@
 <div class='container'>
+  <div class="text-center">
+    <h1> Lista de usuários </h1>
+    <br>
+  </div>
   <% if flash[:notice] %>
     <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
   <% end %>
@@ -32,6 +36,7 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to t('link_to.back'), admins_path, class:"btn btn-primary" %>
 <script>
   $('.alert').fadeOut(2800);
 </script>

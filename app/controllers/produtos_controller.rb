@@ -90,7 +90,7 @@ class ProdutosController < ApplicationController
       pedido.itens_pedido.create!(produto_id: params[:produto_id], quantidade: 1)
       flash[:notice] = "Item adicionado com sucesso."
     end
-    index
+    redirect_to produtos_path({page: params[:page]}) 
   end
 
   def landing_page
