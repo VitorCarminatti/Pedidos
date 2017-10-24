@@ -28,7 +28,7 @@
   </tbody>
 </table>
 <br>
-  <%= paginate @pedidos %>
+    <%= will_paginate @pedidos, renderer: BootstrapPagination::Rails %>
 <%= link_to 'Adicionar Itens', root_path, class: "btn btn-primary pull-left" %>
 <script>
 $('.alert').fadeOut(2800);

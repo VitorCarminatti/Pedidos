@@ -2,5 +2,5 @@
   <%= render 'galeria_produtos', model: @produto %>
 </div>
 <div class="container link-produtos" id="paginator">
-  <%= paginate @produtos %>
+    <%= will_paginate @produtos, renderer: BootstrapPagination::Rails %>
 </div>

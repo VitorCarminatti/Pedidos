@@ -1,5 +1,7 @@
 <div class="col-md-4 col-md-offset-4">
-<p id="notice"><%= notice %></p>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
 
 <p>
   <strong>Nome:</strong>

@@ -23,7 +23,7 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate @produtos %>
+    <%= will_paginate @produtos, renderer: BootstrapPagination::Rails %>
 <br>
   <%= link_to 'Novo Produto', new_produto_path, class: 'btn btn-primary admin-button' %>
   <%= link_to t('link_to.back'), admins_path, class:"btn btn-primary" %>

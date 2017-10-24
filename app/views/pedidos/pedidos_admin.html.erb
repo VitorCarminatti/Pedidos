@@ -29,7 +29,7 @@
   </tbody>
 </table>
 <br>
-  <%= paginate @pedidos %>
+    <%= will_paginate @pedidos, renderer: BootstrapPagination::Rails %>
   <%= link_to t('link_to.back'), admins_path, class: 'btn btn-primary' %>
 <script>
 $('.alert').fadeOut(2800);

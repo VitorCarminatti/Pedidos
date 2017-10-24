@@ -42,7 +42,8 @@ gem 'coffee-rails'
 gem 'devise-i18n'
 
 # paginação
-gem 'kaminari'
+gem 'will_paginate', '~> 3.0.5'
+gem 'will_paginate-bootstrap'
 
 # Forularios
 gem 'simple_form'

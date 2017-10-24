@@ -30,8 +30,8 @@
               <% end %>
             </div>
             <div class="card-body">
-              <h4 class="card-title"><%= produto.nome %></h4>
-              <p class="card-text"><%= produto.descricao %> </p>
+              <h4 class="card-title"><%= truncate(produto.nome, length: 18) %></h4>
+              <p class="card-text"><%= truncate(produto.descricao, length: 34) %> </p>
               <p class="card-text preco">R$: <%= number_with_precision(produto.preco, precision: 2) %> </p>
               <% if produto.estoque > 0 && produto.ativo %>
               <%= link_to 'Adicionar ao carrinho', adiciona_produto_produtos_path(produto_id: produto, page: params[:page]), class: "btn btn-primary btn-block" %>

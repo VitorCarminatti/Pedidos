@@ -6,7 +6,7 @@ class PedidosController < ApplicationController
   # GET /pedidos.json
   def index
     @q = Pedido.ransack(params[:q])
-    @pedidos = @q.result.includes(:user).page(params[:page]).per(8)
+    @pedidos = @q.result.includes(:user).paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
   # GET /pedidos/1
