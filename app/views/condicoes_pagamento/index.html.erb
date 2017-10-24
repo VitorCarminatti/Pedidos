@@ -1,0 +1,27 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Condições de pagamento</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @condicoes_pagamento.each do |condicao_pagamento| %>
+    <tr>
+      <td><%= condicao_pagamento.nome %></td>
+      <td><%= link_to t('link_to.edit'), edit_condicao_pagamento_path(condicao_pagamento), class: 'btn btn-primary' %></td>
+      <td><%= link_to t('link_to.destroy'), condicao_pagamento, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Criar condição de pagamento', new_condicao_pagamento_path, class: 'btn btn-primary' %>
+
+</div>

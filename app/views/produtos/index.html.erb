@@ -1,6 +1,7 @@
 <div id="adiciona-produto">
   <%= render 'galeria_produtos', model: @produto %>
 </div>
-<div class="container link-produtos" id="paginator">
-    <%= will_paginate @produtos, renderer: BootstrapPagination::Rails %>
+
+<div class="container link-produtos">
+    <%= will_paginate @lista, renderer: BootstrapPagination::Rails %>
 </div>

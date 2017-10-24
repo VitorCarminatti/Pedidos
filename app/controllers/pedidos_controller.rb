@@ -47,10 +47,9 @@ class PedidosController < ApplicationController
   # PATCH/PUT /pedidos/1
   # PATCH/PUT /pedidos/1.json
   def update
-    @pedido.itens_pedido.destroy_all
     respond_to do |format|
       if @pedido.update(pedido_params)
-        format.html { redirect_to @pedido, notice: 'Pedido atualizado com sucesso.' }
+        format.html { redirect_to itens_pedido_path, notice: 'Pedido atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @pedido }
       else
         format.html { render :edit }
@@ -80,14 +79,6 @@ class PedidosController < ApplicationController
     end
   end
 
-  def atualiza_status_pedido
-    pedido = Pedido.find_by(user_id: current_user, aberto: true)
-    atualiza_estoque_venda
-    pedido.update(aberto: false)
-    pedido.save!
-    redirect_to pedidos_path
-  end
-
   def atualiza_estoque_venda
     pedido = Pedido.find_by(user_id: current_user, aberto: true)
     pedido.itens_pedido.each do |item|
@@ -95,6 +86,14 @@ class PedidosController < ApplicationController
       estoque = produto.estoque - item.quantidade
       produto.update(estoque: estoque)
     end
+  end
+
+  def atualiza_status_pedido
+    pedido = Pedido.find_by(user_id: current_user, aberto: true)
+    atualiza_estoque_venda
+    pedido.update!(condicao_pagamento_id: params[:pedido][:condicao_pagamento_id], aberto: false )
+    pedido.save!
+    redirect_to pedidos_path
   end
 
   def atualiza_estoque_cancelamento
@@ -114,7 +113,7 @@ class PedidosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pedido_params
-      params.require(:pedido).permit(:user_id,
+      params.require(:pedido).permit(:user_id, :condicao_pagamento_id,
         :itens_pedido_attributes => [:quantidade, %i[produto_id _destroy]])
     end
 end

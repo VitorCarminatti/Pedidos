@@ -7,11 +7,7 @@ class ProdutosController < ApplicationController
   # GET /produtos.json
   def index
     @q = Produto.ransack(params[:q])
-    @produtos = @q.result(distinct: true).paginate(page: params[:page], per_page: 8).order('created_at DESC')
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    @produtos = @q.result(distinct: true).paginate(page: params[:page], per_page: 8)
   end
 
   def produtos_admin
@@ -94,7 +90,7 @@ class ProdutosController < ApplicationController
       pedido.itens_pedido.create!(produto_id: params[:produto_id], quantidade: 1)
       flash[:notice] = "Item adicionado com sucesso."
     end
-    redirect_to produtos_path({page: params[:page]})
+    index
   end
 
   def landing_page

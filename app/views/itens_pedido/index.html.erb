@@ -2,12 +2,28 @@
   <% if flash[:notice] %>
     <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
   <% end %>
-<div id="atualiza_carrinho">
-  <%= render 'carrinho', model: @itens_pedido %>
-</div>
 
+  <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+  <% end %>
+
+  <div id="atualiza_carrinho">
+    <%= render 'carrinho', model: @itens_pedido %>
+  </div>
   <%= link_to 'Adicionar Itens', root_path, class: "btn btn-primary pull-left" %>
+
   <% if(atualiza_quantidade_itens > 0) %>
-  <%= link_to 'Finalizar Pedido', atualiza_status_pedido_pedidos_path, class: "btn btn-success pull-right" %>
+    <div class="pull-right">
+      <div class="form-inline">
+        <%= simple_form_for(@pedido, url: atualiza_status_pedido_pedidos_path, method: :put) do |f| %>
+          <%= f.association :condicao_pagamento, label: 'Condição de pagamento', default: 1 %>
+          <br/>
+          <br/>
+          <div class="pull-right">
+            <%= f.submit "Finalizar Pedido", class: "btn btn-success"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

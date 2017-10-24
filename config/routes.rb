@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :condicoes_pagamento
   resources :categorias
   devise_for :users, controllers: { sessions: 'users/sessions', confirmations: 'users/confirmations' }, :path_prefix => 'my'
   resources :users
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
     delete :esvazia_carrinho, on: :collection
   end
   resources :pedidos do
-    get :atualiza_status_pedido, on: :collection
+    put :atualiza_status_pedido, on: :collection
     get :pedidos_admin, on: :collection
     delete :destroy_pedido
   end

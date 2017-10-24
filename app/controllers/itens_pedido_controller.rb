@@ -5,6 +5,7 @@ class ItensPedidoController < ApplicationController
   def index
     @itens_pedido = ItemPedido.joins(:pedido).where(Pedido.table_name => { user_id: current_user },
                                                     Pedido.table_name => { aberto: true })
+    @pedido = Pedido.find_by(user_id: current_user, aberto: true)
   end
 
   def new
@@ -35,8 +36,12 @@ class ItensPedidoController < ApplicationController
 
   def aumenta_quantidade
     item_pedido = ItemPedido.find(params[:id])
-    item_pedido.update!(quantidade: item_pedido.quantidade+1)
-    @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido).order(created_at: :asc)
+    if item_pedido.quantidade >= item_pedido.produto.estoque
+      redirect_to itens_pedido_path, alert: "O produto '#{item_pedido.produto.nome}' possui apenas #{item_pedido.produto.estoque} unidades disponíveis no estoque."
+    else
+      item_pedido.update!(quantidade: item_pedido.quantidade+1)
+      @itens_pedido = ItemPedido.where(pedido: item_pedido.pedido).order(created_at: :asc)
+    end
   end
 
   def diminui_quantidade

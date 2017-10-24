@@ -17,4 +17,5 @@
    inflect.irregular 'pedido', 'pedidos'
    inflect.irregular 'item_pedido', 'itens_pedido'
    inflect.irregular 'categoria', 'categorias'
+   inflect.irregular 'condicao_pagamento', 'condicoes_pagamento'
  end

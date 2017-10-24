@@ -1,5 +1,6 @@
 class Pedido < ApplicationRecord
 	belongs_to :user
+	belongs_to :condicao_pagamento, optional: true
  	has_many :itens_pedido, class_name: "ItemPedido", dependent: :destroy
 	has_many :produtos, through: :itens_pedido, source: :produto
 
