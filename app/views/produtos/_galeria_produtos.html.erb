@@ -26,7 +26,7 @@
           <div class="card my-card">
             <div class="imagem">
               <%= link_to produto_path(produto, consulta: 'produto') do %>
-                <%= image_tag produto.foto.url, size: '200x200'%>
+                <%= image_tag produto.foto.url, class: "imagem"%>
               <% end %>
             </div>
             <div class="card-body">
