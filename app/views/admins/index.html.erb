@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
   <div class="text-center">
     <h1> Bem-Vindo Administrador <%= current_user.nome %> </h1>
   </div>

@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
 
-  def index
+  def index?
+    authorize @admin
   end
 end
