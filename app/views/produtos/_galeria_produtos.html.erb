@@ -9,20 +9,20 @@
 <% end %>
 
 <div class="row">
-  <div class="col-lg-9">
+  <div class="col-xs-12 col-md-9 col-lg-9">
   <%= search_form_for @q do |f| %>
     <%= f.search_field :nome_or_descricao_cont, class: "form-control", autofocus: true, required: false %>
   </div>
-  <div class="col-lg-3">
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
     <div class="form-inline">
-        <%= f.select :by_categoria, categorias_for_select, {include_blank: 'Categorias'}, class: 'form-control', id: "pesquisa" %>
-        <%= f.submit :class => "btn btn-primary"%>
+        <%= f.select :by_categoria, categorias_for_select, {include_blank: 'Categorias'}, class: "col-xs-12 col-sm-12 form-control", id: "pesquisa" %>
+        <%= f.submit :class => "btn btn-primary col-xs-12"%>
     </div>
   </div>
 </div>
   <div class="row">
     <% @produtos.each do |produto| %>
-        <div class="col-sm-3">
+        <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card my-card">
             <div class="imagem">
               <%= link_to produto_path(produto, consulta: 'produto') do %>

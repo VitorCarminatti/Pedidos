@@ -1,33 +1,44 @@
-<nav class="navbar navbar-light" style="background-color: #e3f2fd">
+<div class="row">
   <div class="container-fluid">
-  <div class="navbar-header">
-    <%= link_to "Home", root_path, class: "navbar-brand" %>
-  </div>
-  <ul class="nav navbar-nav">
-    <li><%= link_to "Pedidos", pedidos_path %></li>
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-        <% if(user_signed_in?) %>
-        <% if(current_user.admin) %>
-        <li><%= link_to 'Painel Administrativo', admins_path %> </li>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd">
+      <div class="navbar-header col-xs-5 col-md-8 col-lg-8">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <span class="glyphicon glyphicon-home"> Home</span>
         <% end %>
-        <li>
-          <%= link_to itens_pedido_path do %>
-          <span class="glyphicon glyphicon-shopping-cart"> <%= atualiza_quantidade_itens %> </span>
-          <% end %>
-        </li>
-          <li><%= link_to "Olá, #{current_user.nome}!", edit_user_registration_path %></li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete  do %>
-              <span class="glyphicon glyphicon-log-out" id="logout"> Logout</span>
+      </div>
+      <ul class="nav nav-pills navbar-right col-xs-7 col-md-4 col-lg-4">
+        <li class="col-xs-2 col-md-3 col-lg-3">
+          <% if(user_signed_in?) %>
+            <%= link_to itens_pedido_path do %>
+            <span class="glyphicon glyphicon-shopping-cart"> <%= atualiza_quantidade_itens %> </span><br />
             <% end %>
           </li>
-        <% else %>
-          <li><%= link_to new_user_session_path do %>
-            <span class="glyphicon glyphicon-log-in"> Login</span>
+          <li class="col-xs-4 col-md-5 col-lg-4">
+            <%= link_to "Olá, #{current_user.nome}!", edit_user_registration_path, class: "text-center" %><br />
+          </li>
+            <li role="presentation" class="dropdown col-xs-5 col-md-3 col-lg-4">
+              <a class="dropdown-toggle glyphicon glyphicon-align-justify" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <% if(current_user.admin) %>
+                    <a><%= link_to 'Painel Admin', admins_path %></a>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to "Pedidos", pedidos_path %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete  do %>
+                    <span class="glyphicon glyphicon-log-out" id="logout"> Logout</span>
+                  <% end %>
+                </li>
+              </ul>
+            </li>
           <% end %>
-        </li>
-        <% end %>
+        </ul>
       </ul>
-    </div>
-</nav>
+    </nav>
+  </div>
+</div>

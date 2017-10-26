@@ -1,0 +1,57 @@
+#logout{
+	padding-right: 0.625em;
+}
+
+#git-icon{
+	padding-top: 0.2em;
+	font-size: 2.0em;
+}
+
+.my-card{
+	 max-width: 30rem;
+	 margin-top: 3.125em;
+	 padding: 0.3125em;
+	 border: 0.0625em solid black;
+	 border-radius: 0.3125em;
+}
+
+.imagem{
+	width: 13.000em;
+	height: 13.000em;
+	padding-left: 1.375em;
+}
+
+.card-title{
+	font-weight: bold;
+	font-size: 1.5625em;
+}
+
+.preco{
+	color: darkblue;
+	font-weight: bold;
+	font-size: 1.875em;
+}
+
+.texto-quantidade{
+	display: inline;
+	font-size: 1.5625em;
+	height: 50px;
+}
+
+.link-produtos{
+	padding-left: 0.9375em;
+}
+
+@media (min-width: 768px) {
+  #pesquisa{
+    width: 100%;
+  }
+}
+
+.admin-button{
+	width: 9.375em;
+}
+
+.glyphicon-align-justify{
+	font-size: 1.5em;
+}
