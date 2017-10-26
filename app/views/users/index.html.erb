@@ -6,36 +6,38 @@
   <% if flash[:notice] %>
     <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
   <% end %>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>CPF</th>
-      <th>E-mail</th>
-      <th>Endereço</th>
-      <th>Cidade</th>
-      <th>UF</th>
-      <th>Fone</th>
-      <th>Admin</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-        <tr>
-          <td><%= user.nome %></td>
-          <td><%= user.cpf %></td>
-          <td><%= user.email %></td>
-          <td><%= user.endereco %></td>
-          <td><%= user.cidade %></td>
-          <td><%= user.uf %></td>
-          <td><%= user.fone %></td>
-          <td><%= user.admin %></td>
-          <td><%= link_to 'Editar', edit_user_path(user), class: 'btn btn-primary' %></td>
-          <td><%= link_to t('link_to.destroy'), user, method: :delete, data: { confirm: t('alerts.are_you_sure?') }, class: "btn btn-danger" %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+        <th>Endereço</th>
+        <th>Cidade</th>
+        <th>UF</th>
+        <th>Fone</th>
+        <th>Admin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nome %></td>
+        <td><%= user.cpf %></td>
+        <td><%= user.email %></td>
+        <td><%= user.endereco %></td>
+        <td><%= user.cidade %></td>
+        <td><%= user.uf %></td>
+        <td><%= user.fone %></td>
+        <td><%= user.admin %></td>
+        <td><%= link_to 'Editar', edit_user_path(user), class: 'btn btn-primary' %></td>
+        <td><%= link_to t('link_to.destroy'), user, method: :delete, data: { confirm: t('alerts.are_you_sure?') }, class: "btn btn-danger" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <%= link_to t('link_to.back'), admins_path, class:"btn btn-primary" %>
 <script>
   $('.alert').fadeOut(2800);

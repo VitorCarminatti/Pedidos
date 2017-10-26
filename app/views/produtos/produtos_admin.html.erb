@@ -1,28 +1,30 @@
 <div class="container">
 <h1>Produtos</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Descrição</th>
-      <th>Estoque</th>
-      <th>Preço un.</th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Descrição</th>
+        <th>Estoque</th>
+        <th>Preço un.</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <% @produtos.each do |produto| %>
-        <tr>
-          <td><%= image_tag produto.foto.url, size: '75x75' %></td>
-          <td><%= produto.descricao %></td>
-          <td><%= produto.estoque %></td>
-          <td><%= number_with_precision(produto.preco, precision: 2) %></td>
-          <td><%= link_to t('link_to.edit'), edit_produto_path(produto), class: "btn btn-primary" %></td>
-          <td><%= link_to t('link_to.destroy'), produto_destroy_produto_path(produto), method: :delete, data: { confirm: t('alerts.are_you_sure?') }, class: "btn btn-danger" %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+    <tbody>
+      <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= image_tag produto.foto.url, size: '75x75' %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.estoque %></td>
+        <td><%= number_with_precision(produto.preco, precision: 2) %></td>
+        <td><%= link_to t('link_to.edit'), edit_produto_path(produto), class: "btn btn-primary" %></td>
+        <td><%= link_to t('link_to.destroy'), produto_destroy_produto_path(produto), method: :delete, data: { confirm: t('alerts.are_you_sure?') }, class: "btn btn-danger" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
     <%= will_paginate @produtos, renderer: BootstrapPagination::Rails %>
 <br>
   <%= link_to 'Novo Produto', new_produto_path, class: 'btn btn-primary admin-button' %>
