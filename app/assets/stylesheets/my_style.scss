@@ -48,6 +48,24 @@
   }
 }
 
+@media (min-width: 992px) {
+  #pesquisa{
+    width: auto;
+  }
+	.my-button{
+		margin-left: 5px;
+	}
+}
+
+@media (max-width: 992px) {
+	#pesquisa{
+			margin-top: 5px;
+	}
+	.my-button{
+			margin-top: 5px;
+	}
+}
+
 .admin-button{
 	width: 9.375em;
 }
